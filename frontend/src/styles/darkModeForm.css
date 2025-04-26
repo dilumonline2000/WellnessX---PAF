@@ -1,0 +1,20 @@
+/* Dark mode specific styling for form labels */
+body.dark-mode form label,
+body.dark-mode .form-group label,
+body.dark-mode .modern-form label,
+.dark-mode input + label,
+.dark-mode textarea + label,
+.dark-mode select + label {
+  color: white !important;
+}
+
+/* Make file upload label white in dark mode */
+body.dark-mode .file-upload-label {
+  color: white !important;
+}
+
+/* Ensure good contrast for placeholders in dark mode */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaaaaa;
+}

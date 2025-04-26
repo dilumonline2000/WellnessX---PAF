@@ -1,0 +1,185 @@
+/* Media Options Styling */
+.media-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.media-option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 140px;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.media-option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: #f0f2f5;
+}
+
+.media-option-card.active {
+  border-color: #4A90E2;
+  background-color: #EBF5FF;
+}
+
+.media-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.media-option-card.active .media-icon-container {
+  background-color: #4A90E2;
+}
+
+.media-icon {
+  font-size: 24px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.media-option-card.active .media-icon {
+  color: white;
+}
+
+.media-label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+.media-option-card.active .media-label {
+  color: #4A90E2;
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #4A90E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.selected-indicator.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.selected-indicator::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+}
+
+/* Style for the URL input and image upload sections */
+.url-input-container,
+.media-upload-container {
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed #cfd8dc;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.file-upload-container:hover {
+  border-color: #4A90E2;
+  background-color: #F7FAFC;
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #4A90E2;
+}
+
+.file-upload-label svg {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+/* Media preview styling */
+.media-preview-container {
+  position: relative;
+  margin-top: 15px;
+  max-height: 300px;
+  width: 100%;
+}
+
+.media-preview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.remove-media-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ff4757;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.remove-media-btn:hover {
+  background-color: #ff6b81;
+}
