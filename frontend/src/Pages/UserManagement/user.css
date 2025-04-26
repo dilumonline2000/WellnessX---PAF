@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Add these styles at the top of your CSS file */
+
+/* Global reset to remove any default margins/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset root elements */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Make sure React's root container has no margins */
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Update the login container to fill the entire viewport */
+.glass-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #3b4371, #f3904f);
+  font-family: 'Poppins', sans-serif;
+  position: absolute; /* Position absolute to cover everything */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.glass-login-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,117.3C672,139,768,213,864,213.3C960,213,1056,139,1152,128C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.glass-login-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px;
+  border: none;
+  box-shadow: none;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glass-brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.glass-brand h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.glass-tagline {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
+}
+
+.glass-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.glass-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-input-wrapper {
+  width: 100%;
+  max-width: 380px; /* Set a maximum width that matches the Google button */
+}
+
+.glass-input-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.glass-input-group input, 
+.glass-input-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Enhanced button styling */
+.custom-button {
+  width: 100%;
+  max-width: 380px;
+  padding: 14px 24px;
+  border-radius: 30px;
+  border: none;
+  margin: 15px auto;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+}
+
+.primary-gradient {
+  background: linear-gradient(45deg, #FF5722, #FF9800);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.google-button {
+  background-color: white;
+  color: #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.google-button:hover {
+  background-color: #f8f8f8;
+}
+
+.arrow-icon {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.half-width {
+  width: 48%;
+  margin: 5px;
+}
+
+.secondary-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.stepper-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.glass-separator {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Adjust form container */
+.glass-form {
+  padding: 0 15px;
+}
+
+.glass-input-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.glass-input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.glass-input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.glass-input-group input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.glass-input-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.glass-input-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.glass-input-group textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.glass-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.glass-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.glass-remember input[type="checkbox"] {
+  accent-color: rgba(255, 255, 255, 0.9);
+}
+
+.glass-remember label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.glass-forgot a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.glass-forgot a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.glass-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button.primary {
+  background: linear-gradient(45deg, #f83600, #fe8c00);
+  color: white;
+}
+
+.glass-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button.google {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.glass-button.google:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.glass-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.glass-separator::before,
+.glass-separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-separator span {
+  margin: 0 10px;
+}
+
+.glass-signup {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.glass-signup p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.glass-signup a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.glass-signup a:hover {
+  text-decoration: underline;
+}
+
+.glass-circles .circle-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0));
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+  z-index: -1;
+}
+
+.glass-circles .circle-2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, rgba(64, 169, 255, 0.4), rgba(64, 169, 255, 0));
+  border-radius: 50%;
+  top: -75px;
+  left: -75px;
+  z-index: -1;
+}
+
+.glass-circles .circle-3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, rgba(159, 122, 234, 0.4), rgba(159, 122, 234, 0));
+  border-radius: 50%;
+  top: 50%;
+  right: -50px;
+  z-index: -1;
+}
+
+@media (max-width: 576px) {
+  .glass-login-card {
+    padding: 30px 20px;
+  }
+  
+  .glass-brand h1 {
+    font-size: 28px;
+  }
+  
+  .glass-form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Add these styles to your existing user.css file */
+
+/* Registration stepper styles */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.step.active {
+  background-color: #2196f3;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
+}
+
+.step-line {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex-grow: 1;
+  max-width: 50px;
+}
+
+.register-card {
+  max-width: 500px;
+  min-height: 600px;
+}
+
+.profile-upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-icon-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.default-profile-icon {
+  font-size: 70px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.profile-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hidden-input {
+  display: none;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.skill-tag {
+  background-color: rgba(33, 150, 243, 0.2);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.add-skill-row {
+  display: flex;
+  gap: 10px;
+}
+
+.add-skill-btn {
+  background-color: #2196f3;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+
+.stepper-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.glass-button.secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.glass-verification-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.glass-modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Divider with "or" text */
+.divider-or {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.divider-or::before,
+.divider-or::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divider-or::before {
+  margin-right: 15px;
+}
+
+.divider-or::after {
+  margin-left: 15px;
+}
+
+.divider-or span {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
